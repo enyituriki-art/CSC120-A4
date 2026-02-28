@@ -56,7 +56,7 @@ public class Car implements CarRequirements {
         return false;
     }
 
-    /** Prints the list of passengers or a message if empty. */
+    /** prints the list of passengers or a message if empty. */
     public void printManifest() {
         if (this.passengers.isEmpty()) {
             System.out.println("This car is EMPTY.");
