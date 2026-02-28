@@ -1,6 +1,3 @@
-//public class Train {
-
-//}
 
 import java.util.ArrayList;
 
@@ -8,7 +5,6 @@ import java.util.ArrayList;
  * Represents a train composed of an engine and multiple cars.
  * Provides methods to access cars, check capacity, and print a full manifest.
  */
-
 
 public class Train implements TrainRequirements {
 
@@ -23,12 +19,10 @@ public class Train implements TrainRequirements {
      * @param nCars number of cars to attach
      * @param passengerCapacity capacity of each car
      */
-    public Train(FuelType fuelType, double currentFuelLevel, double fuelCapacity,
-                 int nCars, int passengerCapacity) {
-
+    public Train(FuelType fuelType, double currentFuelLevel, double fuelCapacity, int nCars, int passengerCapacity) {
         this.engine = new Engine(fuelType, currentFuelLevel, fuelCapacity);
-
         this.cars = new ArrayList<Car>();
+
         for (int i = 0; i < nCars; i++) {
             this.cars.add(new Car(passengerCapacity));
         }

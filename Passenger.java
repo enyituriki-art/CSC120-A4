@@ -1,16 +1,7 @@
-// public class Passenger {
-    
-    //private String name;
-
-    //public Passenger(String name) {
-        //this.name = name;
-    //}
-//}
 
 /**
  * Represents a passenger who can board and exit train cars.
  */
-
 
 public class Passenger implements PassengerRequirements {
 

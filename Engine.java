@@ -1,12 +1,8 @@
-//public class Engine {
-
-// }
 
 /**
  * Represents a train engine that stores fuel information and
  * provides methods to consume and refill fuel.
  */
-
 
 public class Engine implements EngineRequirements {
 
@@ -48,7 +44,7 @@ public class Engine implements EngineRequirements {
 
     /**
      * Uses some fuel and prints remaining fuel.
-     * @return true if the engine still has fuel, false if empty.
+     * @return true if the engine still has fuel and false if empty.
      */
 
     public Boolean go() {

@@ -1,11 +1,10 @@
 public class Main {
     public static void main(String[] args) {
 
-        // Make a train with:
-        // fuel type, current fuel, max fuel, number of cars, capacity per car
+        // Train with: fuel type, current fuel, max fuel, number of cars and capacity per car
         Train t = new Train(FuelType.ELECTRIC, 50.0, 100.0, 3, 2);
 
-        // Test engine
+        // Testing engine
         System.out.println("Testing engine:");
         t.getEngine().go();
         t.getEngine().go();
@@ -13,9 +12,9 @@ public class Main {
         System.out.println("Fuel after refuel: " + t.getEngine().getCurrentFuelLevel());
 
         // Make some passengers
-        Passenger p1 = new Passenger("Alice");
-        Passenger p2 = new Passenger("Bob");
-        Passenger p3 = new Passenger("Charlie");
+        Passenger p1 = new Passenger("Elyse");
+        Passenger p2 = new Passenger("Juliane");
+        Passenger p3 = new Passenger("Hia");
 
         // Board passengers
         System.out.println("\nBoarding passengers:");
@@ -28,7 +27,7 @@ public class Main {
         t.printManifest();
 
         // Remove a passenger
-        System.out.println("\nRemoving Bob from Car 0:");
+        System.out.println("\nRemoving Elyse from Car 0:");
         p2.getOffCar(t.getCar(0));
 
         // Print manifest again

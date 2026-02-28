@@ -1,6 +1,3 @@
-//public class Car {
-
-//}
 
 import java.util.ArrayList;
 
@@ -8,7 +5,6 @@ import java.util.ArrayList;
  * Represents a train car that stores passengers and enforces
  * a maximum seating capacity.
  */
-
 
 public class Car implements CarRequirements {
 
@@ -37,7 +33,7 @@ public class Car implements CarRequirements {
     /**
      * Attempts to add a passenger.
      * @param p the passenger to add
-     * @return true if successful, false if car is full.
+     * @return true if successful and false if car is full.
      */
     public Boolean addPassenger(Passenger p) {
         if (this.passengers.size() < this.maxCapacity) {
@@ -50,7 +46,7 @@ public class Car implements CarRequirements {
     /**
      * Attempts to remove a passenger.
      * @param p the passenger to remove
-     * @return true if successful, false if passenger not found.
+     * @return true if successful and false if passenger was not found.
      */
     public Boolean removePassenger(Passenger p) {
         if (this.passengers.contains(p)) {
