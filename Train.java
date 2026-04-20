@@ -1,75 +1,82 @@
-
 import java.util.ArrayList;
 
 /**
- * Represents a train composed of an engine and multiple cars.
- * Provides methods to access cars, check capacity, and print a full manifest.
+ * Represents a train composed of an engine and multiple passenger cars.
  */
+public class Train {
 
-public class Train implements TrainRequirements {
-
-    private Engine engine;
+    private final Engine engine;
     private ArrayList<Car> cars;
 
     /**
-     * Constructor for Train.
+     * Constructs a Train with an engine and a number of cars.
+     *
      * @param fuelType the type of fuel the engine uses
-     * @param currentFuelLevel the starting fuel level
-     * @param fuelCapacity the maximum fuel capacity
-     * @param nCars number of cars to attach
-     * @param passengerCapacity capacity of each car
+     * @param currentFuel the starting fuel level
+     * @param nCars the number of cars in the train
+     * @param passengerCapacity the capacity of each car
      */
-    public Train(FuelType fuelType, double currentFuelLevel, double fuelCapacity, int nCars, int passengerCapacity) {
-        this.engine = new Engine(fuelType, currentFuelLevel, fuelCapacity);
-        this.cars = new ArrayList<Car>();
+    public Train(FuelType fuelType, double currentFuel, int nCars, int passengerCapacity) {
+        this.engine = new Engine(fuelType, currentFuel, currentFuel);
+        this.cars = new ArrayList<>();
 
         for (int i = 0; i < nCars; i++) {
-            this.cars.add(new Car(passengerCapacity));
+            cars.add(new Car(passengerCapacity));
         }
     }
 
-    /** Returns the engine. */
+    /**
+     * Returns the train's engine.
+     *
+     * @return the Engine object
+     */
     public Engine getEngine() {
-        return this.engine;
+        return engine;
     }
 
     /**
- * Returns the car at the given index.
- * @param i the index of the car
- * @return the requested car
- */
-
+     * Returns the car at the given index.
+     *
+     * @param i the index of the car
+     * @return the Car at index i
+     */
     public Car getCar(int i) {
-        return this.cars.get(i);
+        return cars.get(i);
     }
 
-    /** Returns total maximum capacity across all cars. */
+    /**
+     * Returns the total maximum capacity of all cars.
+     *
+     * @return the combined seating capacity
+     */
     public int getMaxCapacity() {
         int total = 0;
-        for (Car c : this.cars) {
-            total += c.getCapacity();
+        for (Car c : cars) {
+            total += c.getCarCapacity();
         }
         return total;
     }
 
-    /** Returns total remaining seats across all cars. */
+    /**
+     * Returns the total number of empty seats across all cars.
+     *
+     * @return the number of remaining seats
+     */
     public int seatsRemaining() {
         int total = 0;
-        for (Car c : this.cars) {
+        for (Car c : cars) {
             total += c.seatsRemaining();
         }
         return total;
     }
 
-    /** Prints a full manifest of all passengers on the train. */
+    /**
+     * Prints the passenger manifest for each car.
+     */
     public void printManifest() {
-        System.out.println("TRAIN MANIFEST:");
-
-        for (int i = 0; i < this.cars.size(); i++) {
+        for (int i = 0; i < cars.size(); i++) {
             System.out.println("Car " + i + ":");
-            this.cars.get(i).printManifest();
-            System.out.println();
+            cars.get(i).printManifest();
         }
     }
 }
-

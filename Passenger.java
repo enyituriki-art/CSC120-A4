@@ -1,48 +1,43 @@
-
 /**
- * Represents a passenger who can board and exit train cars.
+ * Represents a passenger who can board or exit a train car.
  */
-
-public class Passenger implements PassengerRequirements {
-
+public class Passenger {
     private String name;
 
     /**
-     * Constructor for Passenger.
+     * Constructs a Passenger with the given name.
+     *
      * @param name the passenger's name
      */
     public Passenger(String name) {
         this.name = name;
     }
 
-    /** Returns the passenger's name. */
+    /**
+     * Returns the passenger's name.
+     *
+     * @return the name of this passenger
+     */
     public String getName() {
-        return this.name;
+        return name;
     }
 
     /**
-     * Attempts to board the given car.
-     * @param c the car to board
-     * @return true if successful, false if the car is full.
+     * Attempts to board the given car by calling its addPassenger method.
+     *
+     * @param c the Car the passenger is boarding
      */
-    public void boardCar(Car c) {
-        boolean boarded = c.addPassenger(this);
-        if (!boarded) { 
-            System.out.println(this.name + " could not board; car is full."); 
-        }
-        
+
+    public void boardCar(Car c){
+        c.addPassenger(this);
     }
 
     /**
-     * Attempts to get off the given car.
-     * @param c the car to exit
-     * @return true if successful, false if the passenger wasn't onboard.
+     * Attempts to exit the given car by calling its removePassenger method.
+     *
+     * @param c the Car the passenger is leaving
      */
-    public void getOffCar(Car c) {
-        boolean removed = c.removePassenger(this);
-        if (!removed) { 
-            System.out.println(this.name + " was not on this car.");
-         }
+    public void getOffCar(Car c){
+        c.removePassenger(this);
     }
 }
-
